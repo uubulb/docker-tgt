@@ -1,9 +1,9 @@
 FROM alpine
 
 RUN apk --update add curl linux-headers gcc make musl-dev patch && \
-    wget https://github.com/fujita/tgt/archive/refs/tags/v1.0.88.tar.gz && \
-    mkdir tgt/ && tar xvzf v1.0.88.tar.gz && rm v1.0.88.tar.gz && \
-    cd tgt-1.0.88 && \
+    wget https://github.com/fujita/tgt/archive/refs/tags/v1.0.89.tar.gz && \
+    mkdir tgt/ && tar xvzf v1.0.89.tar.gz && rm v1.0.89.tar.gz && \
+    cd tgt-1.0.89 && \
     curl -fsSL https://github.com/void-linux/void-packages/raw/master/srcpkgs/tgt/patches/musl-__wordsize.patch | patch -p1 && \
     make -j$(nproc) && \
     mv usr/tgtd /usr/bin/ && mv usr/tgtadm /usr/bin/ && mv usr/tgtimg /usr/bin/ && \
